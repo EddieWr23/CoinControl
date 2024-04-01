@@ -1,0 +1,309 @@
+html, body {
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    font-family: Arial, sans-serif;
+}
+
+body {
+    padding-bottom: 80px; /* Add padding to the bottom of the body to prevent content from being hidden by the footer */
+    font-family: Arial, sans-serif; /* Set the default font family for the body */
+    background-image: url('https://images.unsplash.com/photo-1604339454409-701c5278c546?q=80&w=2127&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Set the background image */
+}
+
+.title-bar, .navbar {
+    width: 100%; /* Make the title bar and navbar take up the full width of the screen */
+}
+
+.title-bar {
+    background-color: #333; /* Set the background color of the title bar */
+    color: #fff; /* Set the text color of the title bar */
+    padding-top: 20px; /* Add some padding to the top of the title bar */
+}
+
+.title-bar h1 {
+    margin: 0; /* Remove default margin */
+    font-size: 42px; /* Set the font size of the title */
+    font-family: Arial; /* Set the font family of the title */
+    font-weight: bold; /* Set the font weight of the title */
+}
+
+.navbar {
+background-color: #333; /* Set the background color of the navbar */
+}
+
+.navbar-nav {
+display: flex; /* Make the navbar items display in a row */
+justify-content: flex-start; /* Align the navbar items to the left */
+align-items: center; /* Align the navbar items vertically */
+padding-bottom: 20px; /* Add some padding to the bottom of the navbar */
+}
+
+.nav-item {
+margin-left: 20px; /* Add some space between the navbar items */
+margin-right: 20px; /* Add some space between the navbar items */
+color: #fff; /* Set the text color of the navbar items */
+text-decoration: none; /* Remove the underline from the navbar items */
+font-family: Arial; /* Set the font family of the navbar items */
+}
+
+.nav-item:hover {
+    color: rgb(177, 177, 177); /* Change the text color of the navbar items on hover */
+}
+
+form {
+    width: 300px; /* Set the width of the form */
+    margin: 0 auto; /* Center the form horizontally */
+}
+
+textarea {
+    resize: none; /* Prevent users from resizing the textarea */
+}
+
+h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.alert-error {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
+
+.alert-success {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+}
+
+.container {
+    display: flex-end;
+    width: 80%;
+    margin: auto;
+}
+
+.flex-container {
+    display: flex;
+    width: 95%;
+    margin: auto;
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+    padding: 20px;
+    border: 3px solid #333;
+    border-radius: 15px;
+    background-color: #bdbdbd;
+    text-align: center;
+    height: 230px;
+}
+
+
+
+.chart-box {
+    display: flex-end;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 20px;
+    padding: 20px;
+    border: 3px solid #333;
+    border-radius: 15px;
+    background-color: #bdbdbd;
+    text-align: center;
+    height: 420px;
+    width: 60%;
+}
+
+.chart-box canvas {
+    width: 100%;
+    height: 100%;
+}
+
+.flex-box {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    padding: 20px;
+    border: 3px solid #333;
+    border-radius: 15px;
+    background-color: #bdbdbd;
+}
+
+.column {
+    flex: 50%;
+    padding: 0 10px;
+}
+
+.column p {
+    text-align: justify;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #bdbdbd;
+    border-radius: 5px;
+}
+
+.form-border {
+    border: 5px solid #333;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #bdbdbd;
+    margin-top: 20px;
+}
+
+.form-border input {
+    width: 100%; /* Adjust as needed */
+    box-sizing: border-box;
+}
+
+.footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    display: flex;
+}
+
+
+/* Add styles for the expense list table -------------------------------------------------------------------- */ 
+
+#income-list, #expense-list {
+    table-layout: fixed; /* Fix the table layout */
+    font-size: 20px; /* Increase the font size of the table */
+    width: 60%; /* Make the table take up the full width of its container */
+    border-collapse: collapse; /* Collapse the borders into a single line */
+    margin: 0 auto; /* Center the table horizontally */
+}
+
+#income-list td, #expense-list td{
+    border: 1px solid #333; /* Add a border to the cells */
+    padding: 8px; /* Add some padding to the cells */
+    text-align: center; /* Center the text in the cells */
+}
+
+#income-list tr:nth-child(odd), #expense-list tr:nth-child(odd){
+    background-color: #8b8b8b; /* Add a background color to every other row */
+}
+
+#income-list tr:nth-child(even), #expense-list tr:nth-child(even){
+    background-color: #f2f2f2; /* Add a background color to every other row */
+}
+
+/* Add styles for the total income and expense boxes ------------------------------------------------------ */
+
+.expense-box, .income-box {
+    display: flex;
+    flex-direction: column; /* Add this line */
+    justify-content: center;
+    margin-top: 20px;
+    padding: 20px;
+    border: 3px solid #333;
+    border-radius: 15px;
+    background-color: #bdbdbd;
+}
+
+#income-list, #expense-list {
+    width: 100%; /* Make the table take up the full width of its container */
+    margin-bottom: 20px; /* Add a margin to the bottom of the table */
+}
+
+.name-cell, .amount-cell, .delete-button-cell{
+    width: 33%; /* Width of the cell */
+    text-align: center; /* Center the text in the cell */
+    vertical-align: center; /* Center the text vertically in the cell */
+}
+
+.delete-button {
+    display: inline-block; /* Make the button behave like an inline-block element */
+    margin: 0 auto; /* Center the button horizontally */
+    background-color: #ec3e50; /* Add a background color to the button */
+    border-radius: 3px; /* Add a border radius to the button */
+    color: #fff; /* Change the text color of the button */
+    font-size: 16px; /* Change the font size of the button */
+    width: 80%; /* Set a fixed width for the button */
+    padding: 3px; /* Add some padding to the button */
+}
+
+.delete-button:hover {
+    background-color: #851f2b; /* Change the background color of the button on hover */
+}
+
+.add-button {
+    display: inline-block; /* Make the button behave like an inline-block element */
+    margin: 0 auto; /* Center the button horizontally */
+    background-color: #007bff; /* Add a background color to the button */
+    border-radius: 3px; /* Add a border radius to the button */
+    color: #fff; /* Change the text color of the button */
+    font-size: 16px; /* Change the font size of the button */
+    width: 80%; /* Set a fixed width for the button */
+    padding: 3px; /* Add some padding to the button */
+}
+
+.add-button:hover {
+    background-color: #0056b3; /* Change the background color of the button on hover */
+}
+
+.delete-button-cell form {
+    display: inline; /* Make the form behave like an inline element */
+}
+
+#expense-list textarea, #income-list textarea{
+    width: 100%; /* Make the textarea take up the full width of its parent */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.text-green {
+    color: green;
+}
+
+.text-red {
+    color: red;
+}
+
+.text-white {
+    color: white;
+}
+

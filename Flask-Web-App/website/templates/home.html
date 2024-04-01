@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+
+{% block title %}Coin Control{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 align="center" class="text-white"> {{ user.first_name }}, Welcome to Coin Control!</h2>
+</div>
+<div class="flex-container">
+    <div class="column">
+        <div class="box">
+            <h2>Income</h2>
+            <h1 id="income" class="text-green">+£{{ total_income }}</h1>
+        </div>
+    </div>
+    <div class="column">
+        <div class="box">
+            <h2>Balance</h2>
+            <h1 id="balance">£{{user.balance}}</h1>
+            <form method="POST">
+                <input type="hidden" name="form-name" value="update-balance">
+                <textarea name="balance" id="balance" class="form-control"></textarea>
+                <button class="add-button">Update</button>
+            </form>
+            <h4 id="difference" class="{{ 'text-green' if difference|float >= 0 else 'text-red' }}">£{{ difference }}</h4>
+        </div>
+    </div>
+    <div class="column">
+        <div class="box">
+            <h2>Expenses</h2>
+            <h1 id="expenses" class="text-red">-£{{ total_expense }}</h1>
+        </div>
+    </div>
+</div> 
+
+<div class="flex-container">
+    <div class="chart-box">
+        <h2 align="center">Future Balance</h2>
+        <canvas id="myChart"></canvas>
+    </div>
+</div>
+
+<div class="flex-container">
+    <div class="column">
+        <div class="income-box">
+            <h2 align="center">Incomes</h2>
+            <table id="income-list">
+                {% for income in incomes %}
+                    <tr>
+                        <td class="name-cell">{{ income.name }}</td>
+                        <td class="amount-cell">£{{ income.value }}</td>
+                        <td class="delete-button-cell">
+                            <form method="POST" action="{{ url_for('views.delete_income') }}">
+                                <input type="hidden" name="income_id" value="{{ income.id }}">
+                                <button class="delete-button" onclick="deleteIncome({{ income.id }})">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+                <tr>
+                    <form method="POST">
+                        <td>
+                            <input type="hidden" name="form-name" value="add-income">
+                            <textarea name="income" id="income" class="form-control"></textarea>
+                        </td>
+                        <td>
+                            <textarea name="amount" id="amount" class="form-control"></textarea>
+                        </td>
+                        <td align="center">
+                            <button type="submit" class="add-button">Add</button>
+                        </td>
+                    </form>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="column">
+        <div class="expense-box">
+            <h2 align="center">Expenses</h2>
+            <table id="expense-list">
+                {% for expense in expenses %}
+                    <tr>
+                        <td class="name-cell">{{ expense.name }}</td>
+                        <td class="amount-cell">£{{ expense.value }}</td>
+                        <td class="delete-button-cell">
+                            <form method="POST" action="{{ url_for('views.delete_expense') }}">
+                                <input type="hidden" name="expense_id" value="{{ expense.id }}">
+                                <button class="delete-button" onclick="deleteExpense({{ expense.id }})">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+                <tr>
+                    <form method="POST">
+                        <td>
+                            <input type="hidden" name="form-name" value="add-expense">
+                            <textarea name="expense" id="expense" class="form-control"></textarea>
+                        </td>
+                        <td>
+                            <textarea name="amount" id="amount" class="form-control"></textarea>
+                        </td>
+                        <td align="center">
+                            <button type="submit" class="add-button">Add</button>
+                        </td>
+                    </form>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="{{ url_for('static', filename='index.js') }}"></script>
+<script>
+    // Replace these with actual data
+    var dates = {{ dates|tojson }};
+    var balances = {{ balances|tojson }};
+
+    createChart(dates, balances);
+</script>
+{% endblock %}
