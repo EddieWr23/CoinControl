@@ -55,7 +55,7 @@ def sign_up():
         elif len(password1) < 7:
             flash('Password must be at least 7 characters.', category='error')
         else:
-            new_user = User(email=email, first_name=first_name, password=hashlib.sha256(password1.encode('ascii')).hexdigest(), balance=0)
+            new_user = User(email=email, first_name=first_name, password=hashlib.sha256(password1.encode('ascii')).hexdigest(), balance=0, weeks=10)
             db.session.add(new_user)
             db.session.commit()
             login_user(new_user, remember=True)

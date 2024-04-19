@@ -8,6 +8,7 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String(150))
     first_name = db.Column(db.String(150))
     balance = db.Column(db.Numeric(10, 2))
+    weeks = db.Column(db.Integer)
     incomes = db.relationship('Income')
     expenses = db.relationship('Expense')
 

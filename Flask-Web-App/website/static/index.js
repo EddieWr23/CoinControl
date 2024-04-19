@@ -31,7 +31,7 @@ function createChart(dates, balance) {
           datasets: [{
               label: 'Balance',
               data: balance,  // This will be the balance
-              backgroundColor: 'rgba(75, 192, 192, 0.2)',
+              backgroundColor: '#007bff',
               borderColor: '#007bff',
               borderWidth: 1
           }]
@@ -39,7 +39,7 @@ function createChart(dates, balance) {
       options: {
           scales: {
               y: {
-                  beginAtZero: true
+                  beginAtZero: false
               }
           },
           responsive: true

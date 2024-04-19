@@ -49,6 +49,17 @@ def home():
             else:
                 flash('Invalid Balance!', category='error')
         
+        elif form_name == 'update-weeks':
+            new_weeks = request.form.get('weeks')
+            print(str(new_weeks))
+            if new_weeks:
+                new_weeks = int(new_weeks)
+                current_user.weeks = new_weeks
+                db.session.commit()
+                flash('Weeks updated!', category='success')
+            else:
+                flash('Invalid Weeks!', category='error')
+        
         # After processing the form, redirect to the home page 
         return redirect(url_for('views.home'))
     
@@ -60,8 +71,9 @@ def home():
     total_expense = db.session.query(func.sum(Expense.value)).filter_by(user_id=current_user.id).scalar() or 0
     difference = total_income - total_expense
 
+    week_count = current_user.weeks
     current_balance = current_user.balance
-    week_count = 25
+
     weeks = list(range(1, week_count+1))
     balances = [current_balance]
     for week in weeks:
@@ -71,7 +83,7 @@ def home():
     dates = [today + timedelta(weeks=i) for i in range(week_count + 1)] # Creates a list of dates
     dates = [date.strftime("%d %b") for date in dates] #Formats the date to day month
 
-    return render_template("home.html", user=current_user, incomes=incomes, expenses=expenses, total_income=total_income, total_expense=total_expense, difference=difference, balances=balances, dates=dates)
+    return render_template("home.html", user=current_user, incomes=incomes, expenses=expenses, total_income=total_income, total_expense=total_expense, difference=difference, balances=balances, dates=dates, weeks=week_count)
 
 
 @views.route('/delete-income', methods=['POST'])

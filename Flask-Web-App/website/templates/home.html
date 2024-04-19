@@ -36,7 +36,13 @@
 <div class="flex-container">
     <div class="chart-box">
         <h2 align="center">Future Balance</h2>
+        <p align="center">Number of weeks: {{ weeks }}</p>
         <canvas id="myChart"></canvas>
+        <form method="POST">
+            <input type="hidden" name="form-name" value="update-weeks">
+            <input type="number" name="weeks" id="weeks" class="form-control" placeholder="Number of weeks">
+            <button type="submit" class="add-button">Update</button>
+        </form>
     </div>
 </div>
 
